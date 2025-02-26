@@ -1,0 +1,59 @@
+﻿<Page x:Class="HOSPITALDATA.Patients_Page"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:HOSPITALDATA"
+      mc:Ignorable="d" 
+      d:DesignHeight="600" d:DesignWidth="850"
+      Title="Patients_Page">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="500"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Background="#EDCE9B">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition Width="150"/>
+                <ColumnDefinition />
+            </Grid.ColumnDefinitions>
+            <TextBlock Text="Фамилия" Grid.Column="0" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Имя" Grid.Column="1" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Дата Рождения" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Телефон" Grid.Column="3" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+            <TextBlock Text="Адрес" Grid.Column="4" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold"/>
+        </Grid>
+        <ListBox x:Name="patients_LB" Grid.Row="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition Width="150"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock x:Name="lastnameTB" Text="{Binding LastName}" Grid.Column="0" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" />
+                        <TextBlock x:Name="firstnameTB" Text="{Binding FirstName}" Grid.Column="1" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10" />
+                        <TextBlock x:Name="DateTB" Text="{Binding BirthDay}" Grid.Column="2" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+                        <TextBlock x:Name="phoneTB" Text="{Binding Phone}" Grid.Column="3" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+                        <TextBlock x:Name="adressTB" TextWrapping="Wrap" Text="{Binding Adress}" Grid.Column="4" FontSize="15" VerticalAlignment="Center" HorizontalAlignment="Center" Margin="10"/>
+                    </Grid>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        
+        <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button x:Name="del_patient"  Height="30" Margin="10"  Content="удалить" FontSize="20" Background="#F0B49D" Click="del_patient_Click"/>
+            <Button x:Name="add_patient"  Height="30"  Margin="10" Content="добавить" FontSize="20" Background="#F0B49D" Click="add_patient_Click"/>
+        </StackPanel >
+        
+    </Grid>
+</Page>
